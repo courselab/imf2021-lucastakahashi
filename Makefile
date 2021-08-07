@@ -12,7 +12,9 @@ unlock.o: unlock.c
 change.o: change.S
 	gcc -m32 -c $^
 
-.PHONY: clean
+.PHONY: clean dist
 
 clean:
 	rm -rf unlock.o libcrack.so decode change.o
+
+dist: tar zcvf decode.tar.gz Makefile change.S unlock.c decode.o libcypher.so
